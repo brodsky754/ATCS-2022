@@ -1,0 +1,9 @@
+.sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.title {
+    text-align: center;
+    font-size: large;
+    color:blue;
+}
