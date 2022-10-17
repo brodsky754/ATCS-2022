@@ -2,8 +2,17 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-.title {
+#title {
     text-align: center;
-    font-size: large;
+    font-size: 100px;
     color:blue;
+    background-color: white;
+    padding: 0px;
 }
+body {
+    background-color: aquamarine;
+}
+.linkback {
+    text-align: center;
+}
+
