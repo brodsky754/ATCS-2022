@@ -2,46 +2,49 @@
     width: 1000px;
     height: 1000px;
 }
-.title {
-    text-align: center;
-    font-size: 100px;
-    color: blue;
-    background-color: white;
-    padding: 0px;
-}
+
 .farmlink{
     width: 560px;
     height: 315px;
 }
+
 .espnphotos {
     width: 700px;
     height: 500px;
 }
+
 div.centerresume {
     display: flex;
     justify-content: center;
 }
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
+
 .farmlinkvideo {
     width: 450px;
     height: 300px;
 }
+
 .border {
     margin: 50px;
     color: black;
 }
+
 body {
     background-image: url("https://img.freepik.com/premium-vector/abstract-dirty-blue-grunge-texture-splat-perfect-background_622308-58.jpg?w=2000");
 }
+
 .linkback {
     text-align: center;
 }
+
 .mentoring {
     float:right;
 }
+
 .foodbank {
     padding-right: 50px;
 }

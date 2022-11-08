@@ -1,25 +1,26 @@
+
 body {
     background-image: url("https://img.freepik.com/free-vector/abstract-design-background_1048-8430.jpg?w=2000");
 }
+
 .imgstyle {
     width: 600px;
     height: 800px;
 }
+
 .link {
     color:blue;
     text-align: center;
 }
-.title {
-    text-align: center;
-}
+
 .linkposition {
     position: absolute;
 }
+
 .header {
-    background-color: white;
-    font-size: 100px;
-    color:blue;
+    text-align: center;
 }
+
 div.centerphoto {
     display: flex;
     justify-content: center;

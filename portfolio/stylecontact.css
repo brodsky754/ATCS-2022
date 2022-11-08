@@ -1,18 +1,19 @@
+
 .sections {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-#title {
-    text-align: center;
-    font-size: 100px;
-    color:blue;
-    background-color: white;
-    padding: 0px;
-}
+
 body {
     background-image: url("https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000");
 }
+
 .linkback {
     text-align: center;
+}
+
+div.center {
+    display: flex;
+    justify-content: center;
 }
 
