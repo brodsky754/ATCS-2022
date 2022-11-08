@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-image: url("https://img.freepik.com/free-vector/abstract-blue-grunge-background-with-halftone-effect_1017-32529.jpg?w=2000");
 }
 .title {
     text-align: center;
@@ -19,6 +19,10 @@ body {
     margin-right: 100px;
 }
 div.friendsimage {
+    display: flex;
+    justify-content: center;
+}
+div.centercontent {
     display: flex;
     justify-content: center;
 }

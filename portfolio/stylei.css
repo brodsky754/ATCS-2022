@@ -1,16 +1,16 @@
 body {
-    background-color: #6897bb;
+    background-image: url("https://img.freepik.com/free-vector/abstract-design-background_1048-8430.jpg?w=2000");
 }
-img {
-    float:right;
+.imgstyle {
+    width: 600px;
+    height: 800px;
 }
 .link {
     color:blue;
-    font-size: x-large;
+    text-align: center;
 }
 .title {
     text-align: center;
-    font-size: x-large;
 }
 .linkposition {
     position: absolute;
@@ -19,4 +19,8 @@ img {
     background-color: white;
     font-size: 100px;
     color:blue;
+}
+div.centerphoto {
+    display: flex;
+    justify-content: center;
 }

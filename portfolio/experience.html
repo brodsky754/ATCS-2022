@@ -15,38 +15,72 @@
         </title>
     </head>
     <body>
-        <h1 class="title"> Activity Section</h1>
-        <p class="linkback">You can also read more <a href="file:///Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/aboutme.html">about me</a>, go back <a href="file:///Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/index.html">home</a>, or <a href="file:///Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/contact.html">contact me</a>. </p> 
-        <div class="centerresume">
-            <iframe ID="resume" src="https://docs.google.com/document/d/1o8q-0Z0gqq4ZPbYn-sydr-qX06phOIHf/edit"> </iframe>
-        </div>
-        <b1><hr class="border"></b1>
-        <div class="grid">
-            <div class="farmlink">
-                <iframe class="farmlinkvideo" src="https://www.youtube.com/embed/0I8zkq512PI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <p>I volunteered as an early member of the farmlink community.</p>
-                <p>I was on the farms team and made cold calls to many farmers.</p>
-                <p>We reached out to farms for excess food to send to foodbanks.</p> 
-                <p><a href="https://www.farmlinkproject.org/"> See more </a></p>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-primary sticky-top">
+                <a class="navbar-brand" href="/Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/index.html">Nate Goldberg</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#">Other Pages<span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/aboutme.html">About Me</a>
+                        <a class="dropdown-item active" href="/Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/esperience.html">Experiences</a>
+                        <a class="dropdown-item" href="/Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/contact.html">Contact Me</a>
+                    </ul>
+                </div>
+            </nav>
+            <h1 class="title"> Activity Section</h1>
+            <p class="linkback">You can also read more <a href="file:///Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/aboutme.html">about me</a>, go back <a href="file:///Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/index.html">home</a>, or <a href="file:///Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/contact.html">contact me</a>. </p> 
+            <div class="centerresume">
+                <iframe ID="resume" src="https://docs.google.com/document/d/1o8q-0Z0gqq4ZPbYn-sydr-qX06phOIHf/edit"> </iframe>
             </div>
-            <div class="espn">
-                <img class="espnphotos" src="/Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/Screen Shot 2022-10-13 at 9.21.58 AM.png">
-                <img class="espnphotos" src="/Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/Screen Shot 2022-10-13 at 9.22.59 AM.png">
-                <p>Over the summer between my Junior and Senior years, I was an intern for <a href="https://www.espn.com/">ESPN</a>.</p>
-                <p>I worked in the New York office as a member of the corporate strategy team.</p>
-            </div>
-        </div>
-        <b1><hr class="border"></b1>
-        <div>
-            <div class="foodbank">
-                <img id="foodbankphoto" src="https://koit.com/wp-content/uploads/sites/7/2018/11/second-harvest.png">
-                <p>My family and I volunteer monthly at a local second Harvest foodbank.</p>
-                <p>We pass out food, help load and unload the food as well clean.</p>
-            </div>
-            <div class="mentoring">
-                <img id="pennisulabridgephoto" src="https://www.guidestar.org/ViewEdoc.aspx?eDocId=6797155&approved=True">
-                <p>During the school year, I serve as a mentor for pennisula bridge youth.</p>
-                <p>I help the kids with their homework and other issues going on in their lives.</p>
+
+            <!-- Space in between sections of content -->
+            <p> </p>
+
+            <div class="row">
+                <div class="card col-3">
+                    <iframe class="card-img-top" alt="Card image cap" class="farmlinkvideo" src="https://www.youtube.com/embed/0I8zkq512PI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="card-body">
+                    <h5 class="card-title">Farmlink</h5>
+                    <p class="card-text">I volunteered as an early member of the farmlink community. I was on the farms team and made cold calls to many farmers. We reached out to farms for excess food to send to foodbanks.</p>
+                    <a href="https://www.farmlinkproject.org/" class="btn btn-primary"> Learn About Farmlink. </a>
+                    </div>
+                </div>
+                <div class="card col-3">
+                    <img class="card-img-top" class="espnphotos" src="/Users/ngoldberg/Documents/ATCS/ATCS-2022/portfolio/Screen Shot 2022-10-13 at 9.22.59 AM.png" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">ESPN Internship</h5>
+                    <p class="card-text">Over the summer between my Junior and Senior years, I was an intern for ESPN. I worked in the New York office as a member of the corporate strategy team.</p>
+                    <a href="https://www.espn.com/" class="btn btn-primary"> Learn About ESPN. </a>
+                    </div>
+                </div>
+                <div class="card col-3">
+                    <img class="card-img-top" id="foodbankphoto" src="https://koit.com/wp-content/uploads/sites/7/2018/11/second-harvest.png" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title"> Second Harvest Food Bank </h5>
+                    <p class="card-text">My family and I volunteer monthly at a local second Harvest foodbank. We pass out food, help load and unload the food as well clean. </p>
+                    <a href="https://www.shfb.org/" class="btn btn-primary"> Learn About Second Harvest Food Bank. </a>
+                    </div>
+                </div>
+                <div class="card col-3">
+                    <img class="card-img-top" id="pennisulabridgephoto" src="https://www.guidestar.org/ViewEdoc.aspx?eDocId=6797155&approved=True" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Penninsula Bridge Mentoring</h5>
+                    <p class="card-text"> During the school year, I serve as a mentor for pennisula bridge youth. I help the kids with their homework and other issues going on in their lives.</p>
+                    <a href="https://www.peninsulabridge.org/" class="btn btn-primary"> Learn About Penninsula Bridge. </a>
+                    </div>
+                </div>
             </div>
         </div>
          <!-- Your Content ABOVE this Line -->
