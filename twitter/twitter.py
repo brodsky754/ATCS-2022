@@ -38,50 +38,138 @@ class Twitter:
     is guaranteed to be logged in after this function.
     """
     def register_user(self):
-        pass
+        while(True):
+            user = input("What do you want your username to be?")
+            password = input("Enter a password:")
+            verify = input("Re-enter your password:")
+            check_new = db_session.query(User).where(User.username == user).first()
+            if(verify is not password or check_new is not None):
+                print("That username is taken or your passwords don't match")
+            else:
+                break
+        new_user = User(user, password)
+        self.logged_in = True
+        self.curr_user = new_user
+        db_session.add(new_user)
+        db_session.commit()
+        print("Welcome " + user)
 
     """
     Logs the user in. The user
     is guaranteed to be logged in after this function.
     """
     def login(self):
-        pass
+        while(True):
+            user = input("Username:")
+            password = input("Password:")
+            person = db_session.query(User).where(User.password == password and User.username == user).first()
+            if(person.username is not user or person.password is not password):
+                print("Invalid username or password")
+            else:
+                break
+        print("Welcome " + person.username)
+        self.logged_in = True
+        self.curr_user = person
 
     
     def logout(self):
-        pass
+        self.logged_in = False
+        self.curr_user = None
 
     """
     Allows the user to login,  
     register, or exit.
     """
     def startup(self):
-        pass
+        print("Select a menu option:")
+        option = input("1.Login\n2.Register User\n3.Exit")
+        if(option == "1"):
+            self.login()
+        elif(option == "2"):
+            self.register_user()
+        elif(option == "3"):
+            self.end()
 
     def follow(self):
-        pass
+        who = input("Who do you want to follow?")
+        person = db_session().query(User).where(User.username == who).first()
+        if(person == None):
+            print("This person doesn't exist in our twitter database.")
+            return
+        elif(person in self.curr_user.following):
+            print("You cannot follow someone that you already follow.")
+            return
+        self.curr_user.following.append(person)
+        db_session.commit()
+        print("You now following @" + who)
 
     def unfollow(self):
-        pass
+        who = input("Who do you want to unfollow?")
+        person = db_session().query(User).where(User.username == who).first()
+        if(person == None):
+            print("This person doesn't exist")
+            return
+        elif(person not in self.curr_user.following):
+            print("You don't follow this person")
+            return
+        self.curr_user.following.remove(person)
+        db_session.commit()
+        print("You have unfollowed @" + who)
 
     def tweet(self):
-        pass
+        tweet = input("New Tweet:")
+        tags = input("Add tags seperated by spaces:")
+        tag_list = tags.split()
+        timestamp = datetime.now()
+        new_tweet = Tweet(tweet, timestamp, self.curr_user.username)
+        for tag in tag_list:
+            new_tag = Tag(tag)
+            new_tweet.tags.append(new_tag)
+        db_session.add(new_tweet)
+        db_session.commit()
+        print(new_tweet)
     
     def view_my_tweets(self):
-        pass
+        result = db_session.query(Tweet).filter(self.curr_user.username == Tweet.username).all()
+        for tweet in result:
+            print(tweet)
+            print("============================")
     
     """
     Prints the 5 most recent tweets of the 
     people the user follows
     """
     def view_feed(self):
-        pass
+        tweets = (
+            db_session.query(Tweet)
+            .join(Follower, Tweet.username == Follower.following_id)
+            .filter(self.curr_user.username == Follower.follower_id)
+            .order_by(Tweet.timestamp.desc())
+            .limit(5)
+        )
+        for tweet in tweets:
+            print(tweet)
 
     def search_by_user(self):
-        pass
+        username = input("Search for user:")
+        user = db_session.query(User).where(User.username == username).first()
+        if(user == None):
+            print("No account has that name.")
+            return
+        tweets = db_session.query(Tweet).join(User, User.username == Tweet.username).filter(User.username == user.username).all()
+        
+        for tweet in tweets:
+            print(tweet)
 
     def search_by_tag(self):
-        pass
+        tag_input = input("Find Tag:")
+        tags = db_session.query(Tag).filter(Tag.content == f"#{tag_input}").all()
+        if(tags == None):
+            print("No such tag exists")
+            return
+        
+        for tag in tags:
+            print(tag.tweets) 
 
     """
     Allows the user to select from the 
@@ -92,25 +180,26 @@ class Twitter:
 
         print("Welcome to ATCS Twitter!")
         self.startup()
+        while(self.logged_in == True):
 
-        self.print_menu()
-        option = int(input(""))
+            self.print_menu()
+            option = int(input(""))
 
-        if option == 1:
-            self.view_feed()
-        elif option == 2:
-            self.view_my_tweets()
-        elif option == 3:
-            self.search_by_tag()
-        elif option == 4:
-            self.search_by_user()
-        elif option == 5:
-            self.tweet()
-        elif option == 6:
-            self.follow()
-        elif option == 7:
-            self.unfollow()
-        else:
-            self.logout()
-        
+            if option == 1:
+                self.view_feed()
+            elif option == 2:
+                self.view_my_tweets()
+            elif option == 3:
+                self.search_by_tag()
+            elif option == 4:
+                self.search_by_user()
+            elif option == 5:
+                self.tweet()
+            elif option == 6:
+                self.follow()
+            elif option == 7:
+                self.unfollow()
+            else:
+                self.logout()
+            
         self.end()
