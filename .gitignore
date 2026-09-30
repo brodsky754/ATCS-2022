@@ -104,3 +104,10 @@ dist
 .tern-port
 
 .DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# SQLAlchemy log written by twitter/database.py
+db.log

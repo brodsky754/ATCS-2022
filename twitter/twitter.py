@@ -43,7 +43,9 @@ class Twitter:
             password = input("Enter a password:")
             verify = input("Re-enter your password:")
             check_new = db_session.query(User).where(User.username == user).first()
-            if(verify is not password or check_new is not None):
+            if(not user or not password):
+                print("Username and password can't be empty")
+            elif(verify != password or check_new is not None):
                 print("That username is taken or your passwords don't match")
             else:
                 break
@@ -62,11 +64,15 @@ class Twitter:
         while(True):
             user = input("Username:")
             password = input("Password:")
-            person = db_session.query(User).where(User.password == password and User.username == user).first()
-            if(person.username is not user or person.password is not password):
+            person = db_session.query(User).where(User.username == user).first()
+            if(person is None or not person.check_password(password)):
                 print("Invalid username or password")
             else:
                 break
+        if(person.needs_rehash()):
+            # Legacy plaintext row: now that the password is known, store a salted hash instead.
+            person.set_password(password)
+            db_session.commit()
         print("Welcome " + person.username)
         self.logged_in = True
         self.curr_user = person
