@@ -3,6 +3,12 @@ from database import init_db, db_session
 from datetime import datetime
 
 class Twitter:
+    def __init__(self):
+        # Nobody is logged in until startup() logs someone in or registers them;
+        # without this, choosing "Exit" at startup crashed run() with AttributeError.
+        self.logged_in = False
+        self.curr_user = None
+
     """
     The menu to print once a user has logged in
     """
@@ -93,8 +99,7 @@ class Twitter:
             self.login()
         elif(option == "2"):
             self.register_user()
-        elif(option == "3"):
-            self.end()
+        # Option 3 (Exit) falls through: run() sees logged_in is False and calls end().
 
     def follow(self):
         who = input("Who do you want to follow?")
